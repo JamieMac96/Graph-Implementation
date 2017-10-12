@@ -6,10 +6,11 @@ import java.util.List;
 import com.macmanus.linkedlist.LinkedList;
 
 public abstract class Graph<T> {
-    private List<LinkedList<Integer>> adjacencyList;
-    private List<T> nodes;
+    public List<LinkedList<Integer>> adjacencyList;
+    List<T> nodes;
 
-    public Graph(){
+    Graph(){
+        nodes = new ArrayList<>();
         adjacencyList = new ArrayList<LinkedList<Integer>>();
     }
 
@@ -25,6 +26,7 @@ public abstract class Graph<T> {
                 nodeIndex = i;
             }
         }
+
         return adjacencyList.get(nodeIndex);
     }
 
@@ -32,9 +34,9 @@ public abstract class Graph<T> {
         nodes.add(node);
     }
 
-    public void addEdge(int fromNode, int toNode){
+    public abstract void addEdge(int fromNode, int toNode);
 
-    }
+    public abstract boolean containsEdge(int from, int to);
 
     public abstract boolean isPlanar();
 
