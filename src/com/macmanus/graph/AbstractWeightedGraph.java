@@ -2,8 +2,7 @@ package com.macmanus.graph;
 
 import java.util.List;
 
-public abstract class AbstractWeightedGraph<T> implements Graph<T> {
-    List<T> nodes;
+public abstract class AbstractWeightedGraph<T> extends BaseAbstractGraph<T> {
 
     @Override
     public void addNode(T node) {

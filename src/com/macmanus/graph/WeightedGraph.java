@@ -13,8 +13,8 @@ public class WeightedGraph<T> extends AbstractWeightedGraph<T> {
     }
 
     @Override
-    public void addNode(T node) {
-
+    public T getNode(int index) {
+        return null;
     }
 
     @Override

@@ -3,13 +3,13 @@ package com.macmanus.graph;
 public class DirectedGraph<T> extends AbstractGraph<T>{
 
     @Override
-    public void addEdge(int from, int to) {
-
+    public boolean addEdge(int from, int to) {
+        return false;
     }
 
     @Override
-    public void addEdge(T from, T to) {
-
+    public boolean addEdge(T from, T to) {
+        return false;
     }
 
     @Override

@@ -1,5 +1,9 @@
 package com.macmanus.graph;
 
+import com.macmanus.linkedlist.LinkedList;
+
+import java.util.List;
+
 public class DirectedWeightedGraph<T> extends AbstractWeightedGraph<T> {
 
     @Override

@@ -9,6 +9,12 @@ public interface Graph<T> {
 
     public void addNode(T node);
 
+    public void setNode(int index, T node);
+
+    public T getNode(int index);
+
+    public List<T> getNodes();
+
     public void depthFirstSearch();
 
     public void bredthFirstSearch();

@@ -4,8 +4,7 @@ import com.macmanus.linkedlist.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractGraph<T> implements Graph<T>{
-    List<T> nodes;
+public abstract class AbstractGraph<T> extends BaseAbstractGraph<T>{
     List<LinkedList<Integer>> adjacencyList;
 
     AbstractGraph(){
@@ -17,6 +16,10 @@ public abstract class AbstractGraph<T> implements Graph<T>{
     public void addNode(T node){
         nodes.add(node);
         adjacencyList.add(new LinkedList<>());
+    }
+
+    public List<LinkedList<Integer>> getEdges(){
+        return adjacencyList;
     }
 
     @Override
@@ -67,7 +70,7 @@ public abstract class AbstractGraph<T> implements Graph<T>{
 
     }
 
-    public abstract void addEdge(int from, int to);
+    public abstract boolean addEdge(int from, int to);
 
-    public abstract void addEdge(T from, T to);
+    public abstract boolean addEdge(T from, T to);
 }
