@@ -1,24 +1,15 @@
 package com.macmanus.graph;
 
-public class DirectedGraph<T> extends Graph{
+public class DirectedGraph<T> extends AbstractGraph<T>{
+
     @Override
-    public boolean isPlanar() {
-        return false;
+    public void addEdge(int from, int to) {
+
     }
 
     @Override
-    public boolean isTree() {
-        return false;
-    }
+    public void addEdge(T from, T to) {
 
-    @Override
-    public boolean isConnected() {
-        return false;
-    }
-
-    @Override
-    public boolean isComplete() {
-        return false;
     }
 
     @Override
@@ -28,11 +19,6 @@ public class DirectedGraph<T> extends Graph{
 
     @Override
     public void bredthFirstSearch() {
-
-    }
-
-    @Override
-    public void shortestPath() {
 
     }
 }

@@ -4,17 +4,19 @@ import com.macmanus.linkedlist.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UndirectedGraph<T> extends Graph<T>{
+public abstract class AbstractGraph<T> implements Graph<T>{
+    List<T> nodes;
+    List<LinkedList<Integer>> adjacencyList;
+
+    AbstractGraph(){
+        nodes = new ArrayList<>();
+        adjacencyList = new ArrayList<>();
+    }
 
     @Override
-    public void addEdge(int fromNode, int toNode) {
-        if(!(nodes.contains(fromNode) && nodes.contains(toNode))){
-            return;
-        }
-        if(!containsEdge(fromNode, toNode)) {
-            adjacencyList.get(fromNode).add(toNode);
-            adjacencyList.get(toNode).add(fromNode);
-        }
+    public void addNode(T node){
+        nodes.add(node);
+        adjacencyList.add(new LinkedList<>());
     }
 
     @Override
@@ -24,11 +26,6 @@ public class UndirectedGraph<T> extends Graph<T>{
 
     @Override
     public void bredthFirstSearch() {
-
-    }
-
-    @Override
-    public void shortestPath() {
 
     }
 
@@ -64,4 +61,13 @@ public class UndirectedGraph<T> extends Graph<T>{
     public boolean isComplete() {
         return false;
     }
+
+    @Override
+    public void isEularian() {
+
+    }
+
+    public abstract void addEdge(int from, int to);
+
+    public abstract void addEdge(T from, T to);
 }

@@ -5,50 +5,24 @@ import java.util.List;
 
 import com.macmanus.linkedlist.LinkedList;
 
-public abstract class Graph<T> {
-    public List<LinkedList<Integer>> adjacencyList;
-    List<T> nodes;
+public interface Graph<T> {
 
-    Graph(){
-        nodes = new ArrayList<>();
-        adjacencyList = new ArrayList<LinkedList<Integer>>();
-    }
+    public void addNode(T node);
 
-    public LinkedList<Integer> getAdjacentNodes(int index){
-        return adjacencyList.get(index);
-    }
+    public void depthFirstSearch();
 
-    public LinkedList<Integer> getAdjacentNodes(T node){
-        int nodeIndex = 0;
+    public void bredthFirstSearch();
 
-        for(int i = 0; i < nodes.size(); i++){
-            if(node.equals(nodes.get(i))){
-                nodeIndex = i;
-            }
-        }
+    public boolean containsEdge(int from, int to);
 
-        return adjacencyList.get(nodeIndex);
-    }
+    public boolean isPlanar();
 
-    public void addNode(T node){
-        nodes.add(node);
-    }
+    public void isEularian();
 
-    public abstract void addEdge(int fromNode, int toNode);
+    public boolean isTree();
 
-    public abstract boolean containsEdge(int from, int to);
+    public boolean isConnected();
 
-    public abstract boolean isPlanar();
+    public boolean isComplete();
 
-    public abstract boolean isTree();
-
-    public abstract boolean isConnected();
-
-    public abstract boolean isComplete();
-
-    public abstract void depthFirstSearch();
-
-    public abstract void bredthFirstSearch();
-
-    public abstract void shortestPath();
 }
