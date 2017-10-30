@@ -20,5 +20,4 @@ public interface Graph<T> {
     public void breadthFirstSearch();
 
     public boolean containsEdge(int from, int to);
-
 }

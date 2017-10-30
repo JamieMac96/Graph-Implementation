@@ -7,28 +7,15 @@ import java.util.List;
 public class DirectedWeightedGraph<T> extends AbstractWeightedGraph<T> {
 
     @Override
-    public void addEdge(int from, int to, int weight) {
+    public boolean addEdge(int from, int to, int weight) {
+        if(containsEdge(from, to)) return false;
+        if((from == to) && weight != 0) return false;
+        checkIndex(from);
+        checkIndex(to);
 
-    }
+        adjacencyList.get(from).add(new WeightedEdge(to, weight));
 
-    @Override
-    public void addEdge(T from, T to, int weight) {
-
-    }
-
-    @Override
-    public boolean containsEdge(int from, int to) {
-        return false;
-    }
-
-    @Override
-    public void depthFirstSearch() {
-
-    }
-
-    @Override
-    public void breadthFirstSearch() {
-
+        return true;
     }
 
     @Override

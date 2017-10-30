@@ -1,5 +1,7 @@
 package com.macmanus.graph;
 
+import com.macmanus.linkedlist.LinkedList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public abstract class BaseAbstractGraph<T> implements Graph<T>{
         }
     }
 
-    protected boolean checkEquality(T genericOne, T genericTwo){
+    boolean checkEquality(T genericOne, T genericTwo){
         if(genericOne != null && genericTwo != null) {
             Object genericObj = ((Object) genericOne);
             if (genericObj.equals(genericTwo)) {
@@ -44,5 +46,18 @@ public abstract class BaseAbstractGraph<T> implements Graph<T>{
             }
         }
         return false;
+    }
+
+    int getNodeIndex(T node){
+        int nodeIndex = -1;
+
+        for(int i = 0; i < nodes.size(); i++){
+            T current = nodes.get(i);
+            if(checkEquality(current, node)){
+                nodeIndex = i;
+            }
+        }
+
+        return nodeIndex;
     }
 }

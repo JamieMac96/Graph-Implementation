@@ -13,19 +13,8 @@ public abstract class AbstractGraph<T> extends BaseAbstractGraph<T>{
     }
 
     public boolean addEdge(T from, T to) {
-        int fromIndex = -1;
-        int toIndex = -1;
-
-        for(int i = 0; i < nodes.size(); i++){
-            T current = nodes.get(i);
-            if(checkEquality(current, from)){
-                fromIndex = i;
-            }
-            if(checkEquality(current, to)){
-                toIndex = i;
-            }
-        }
-
+        int fromIndex = getNodeIndex(from);
+        int toIndex = getNodeIndex(to);
         boolean foundBothElements = (fromIndex != -1 && toIndex != -1);
 
         return foundBothElements && addEdge(fromIndex, toIndex);
