@@ -31,13 +31,42 @@ public abstract class AbstractGraph<T> extends BaseAbstractGraph<T>{
     }
 
     @Override
-    public void depthFirstSearch() {
+    protected List<Integer> dfsRecursive(boolean[] visited, List<Integer> visitedNodeIndices, int nodeIndex){
+        visited[nodeIndex] = true;
+        visitedNodeIndices.add(nodeIndex);
 
+        for(int w: adjacencyList.get(nodeIndex)){
+            if(!visited[w]){
+                dfsRecursive(visited, visitedNodeIndices, w);
+            }
+        }
+
+        return visitedNodeIndices;
     }
 
+    // Returns the indices of the nodes visited when running the DFS algorithm
     @Override
-    public void breadthFirstSearch() {
+    public List<Integer> breadthFirstSearch(int source) {
+        boolean[] visited = new boolean[nodes.size()];
+        ArrayList<Integer> visitedNodeIndices = new ArrayList<>();
+        LinkedList<Integer> queue = new LinkedList<>();
 
+        queue.add(source);
+        visited[source] = true;
+
+        while(queue.size() != 0){
+            source = queue.getFirst();
+            visitedNodeIndices.add(source);
+
+            for(int nodeIndex: adjacencyList.get(source)){
+                if(!visited[nodeIndex]){
+                    visited[nodeIndex] = true;
+                    queue.add(nodeIndex);
+                }
+            }
+        }
+
+        return visitedNodeIndices;
     }
 
     @Override

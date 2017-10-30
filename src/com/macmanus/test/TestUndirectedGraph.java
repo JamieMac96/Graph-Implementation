@@ -1,19 +1,19 @@
-package com.macmanus.test.simplegraph;
+package com.macmanus.test;
 
 import com.macmanus.graph.AbstractGraph;
-import com.macmanus.graph.SimpleGraph;
+import com.macmanus.graph.UndirectedGraph;
 import com.macmanus.linkedlist.LinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestSimpleGraph {
+public class TestUndirectedGraph {
     private AbstractGraph<String> graph;
 
     @BeforeEach
     void setUp(){
-        graph = new SimpleGraph<>();
+        graph = new UndirectedGraph<>();
 
         graph.addNode("hello");
         graph.addNode("there");
@@ -71,5 +71,15 @@ public class TestSimpleGraph {
         assertTrue(edgesOne.size() == 1);
         assertTrue(edgesSix.size() == 2);
         assertTrue(replicaEdgesZero.equals(edgesZero));
+    }
+
+    @Test
+    void testBreadthFirstSearch(){
+        graph.addEdge("hello", "simple");
+        graph.addEdge("there", "is");
+        graph.addEdge("a", "graph");
+        graph.addEdge("hello", "graph");
+
+        assertTrue(graph.depthFirstSearch(0).size() == 4);
     }
 }

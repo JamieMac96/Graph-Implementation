@@ -1,11 +1,6 @@
 package com.macmanus.graph;
 
-import com.macmanus.linkedlist.LinkedList;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class SimpleGraph<T> extends AbstractGraph<T> {
+public class UndirectedGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean addEdge(int from, int to) {

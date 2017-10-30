@@ -1,9 +1,6 @@
 package com.macmanus.graph;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import com.macmanus.linkedlist.LinkedList;
 
 public interface Graph<T> {
 
@@ -15,9 +12,9 @@ public interface Graph<T> {
 
     public List<T> getNodes();
 
-    public void depthFirstSearch();
+    public List<Integer> depthFirstSearch(int source);
 
-    public void breadthFirstSearch();
+    public List<Integer> breadthFirstSearch(int source);
 
     public boolean containsEdge(int from, int to);
 }

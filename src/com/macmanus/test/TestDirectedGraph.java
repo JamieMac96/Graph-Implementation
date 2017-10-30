@@ -1,4 +1,4 @@
-package com.macmanus.test.directedgraph;
+package com.macmanus.test;
 
 import com.macmanus.graph.AbstractGraph;
 import com.macmanus.graph.DirectedGraph;
@@ -67,5 +67,15 @@ public class TestDirectedGraph {
 
         assertTrue(edgesTwo.size() == 1);
         assertTrue(edgesNine.size() == 0);
+    }
+
+    @Test
+    void testDepthFirstSearch(){
+        myGraph.addEdge("test", "string");
+        myGraph.addEdge("data", "test data");
+        myGraph.addEdge("blah", "another");
+        myGraph.addEdge("here", "another");
+
+        assertTrue(myGraph.depthFirstSearch(0).size() == 1);
     }
 }

@@ -2,7 +2,7 @@ package com.macmanus.graph;
 
 public class UseGraph {
     public static void main(String [] args){
-        AbstractGraph<String> uGraph = new SimpleGraph<>();
+        AbstractGraph<String> uGraph = new UndirectedGraph<>();
 
         uGraph.addNode("node 1");
         uGraph.addNode("node 2");

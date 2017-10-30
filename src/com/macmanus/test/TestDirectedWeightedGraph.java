@@ -1,4 +1,4 @@
-package com.macmanus.test.directedweightedgraph;
+package com.macmanus.test;
 
 import com.macmanus.graph.AbstractWeightedGraph;
 import com.macmanus.graph.DirectedWeightedGraph;

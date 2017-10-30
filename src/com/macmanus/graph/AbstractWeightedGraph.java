@@ -1,7 +1,8 @@
 package com.macmanus.graph;
 
-import java.util.ArrayList;
 import com.macmanus.linkedlist.LinkedList;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractWeightedGraph<T> extends BaseAbstractGraph<T> {
@@ -31,13 +32,44 @@ public abstract class AbstractWeightedGraph<T> extends BaseAbstractGraph<T> {
     }
 
     @Override
-    public void depthFirstSearch() {
+    protected List<Integer> dfsRecursive(boolean[] visited, List<Integer> visitedNodeIndices, int nodeIndex){
+        visited[nodeIndex] = true;
+        visitedNodeIndices.add(nodeIndex);
 
+        for(WeightedEdge w: adjacencyList.get(nodeIndex)){
+            if(!visited[w.getNodexIndex()]){
+                dfsRecursive(visited, visitedNodeIndices, w.getNodexIndex());
+            }
+        }
+
+        return visitedNodeIndices;
     }
 
+    // Returns the indices of the nodes visited when running the DFS algorithm
     @Override
-    public void breadthFirstSearch() {
+    public List<Integer> breadthFirstSearch(int source) {
+        boolean[] visited = new boolean[nodes.size()];
+        ArrayList<Integer> visitedNodeIndices = new ArrayList<>();
+        LinkedList<Integer> queue = new LinkedList<>();
 
+        queue.add(source);
+        visited[source] = true;
+
+        while(queue.size() != 0){
+
+            source = queue.removeFirst();
+            visitedNodeIndices.add(source);
+
+            for(WeightedEdge w: adjacencyList.get(source)){
+                int nodeIndex = w.getNodexIndex();
+                if(!visited[nodeIndex]){
+                    visited[nodeIndex] = true;
+                    queue.add(nodeIndex);
+                }
+            }
+        }
+
+        return visitedNodeIndices;
     }
 
     @Override

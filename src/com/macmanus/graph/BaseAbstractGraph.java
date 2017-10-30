@@ -1,7 +1,5 @@
 package com.macmanus.graph;
 
-import com.macmanus.linkedlist.LinkedList;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +27,16 @@ public abstract class BaseAbstractGraph<T> implements Graph<T>{
     @Override
     public List<T> getNodes(){
         return nodes;
+    }
+
+    // Returns the indices of the nodes visited when running the DFS
+    @Override
+    public List<Integer> depthFirstSearch(int source) {
+        int numNodes = nodes.size();
+        boolean[] visited = new boolean[numNodes];
+        List<Integer> visitedNodeIndices = new ArrayList<>();
+
+        return dfsRecursive(visited, visitedNodeIndices, source);
     }
 
     void checkIndex(int index){
@@ -60,4 +68,6 @@ public abstract class BaseAbstractGraph<T> implements Graph<T>{
 
         return nodeIndex;
     }
+
+    protected abstract List<Integer> dfsRecursive(boolean[] visited, List<Integer> visitedNodeIndices, int nodeIndex);
 }

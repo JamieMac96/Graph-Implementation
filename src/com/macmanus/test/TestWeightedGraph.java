@@ -1,4 +1,4 @@
-package com.macmanus.test.weightedgraph;
+package com.macmanus.test;
 
 import com.macmanus.graph.AbstractWeightedGraph;
 import com.macmanus.graph.WeightedEdge;
@@ -67,5 +67,25 @@ public class TestWeightedGraph {
         assertTrue(edgesTwo.size() == 3);
         assertTrue(edgesNine.size() == 0);
         assertTrue(edgesZero.get(0).getNodexIndex() == 2);
+    }
+
+    @Test
+    void testDepthFirstSearch(){
+        graph.addEdge(0, 2, 12);
+        graph.addEdge(3, 2, 3);
+        graph.addEdge(5, 2, 22);
+        graph.addEdge(7, 2, 5);
+
+        assertTrue(graph.depthFirstSearch(0).size() == 5);
+    }
+
+    @Test
+    void testBreadthFirstSearch(){
+        graph.addEdge(0, 2, 12);
+        graph.addEdge(3, 2, 3);
+        graph.addEdge(5, 2, 22);
+        graph.addEdge(7, 2, 5);
+
+        assertTrue(graph.breadthFirstSearch(0).size() == 5);
     }
 }
