@@ -12,6 +12,25 @@ public abstract class AbstractGraph<T> extends BaseAbstractGraph<T>{
         adjacencyList = new ArrayList<>();
     }
 
+    public boolean addEdge(T from, T to) {
+        int fromIndex = -1;
+        int toIndex = -1;
+
+        for(int i = 0; i < nodes.size(); i++){
+            T current = nodes.get(i);
+            if(checkEquality(current, from)){
+                fromIndex = i;
+            }
+            if(checkEquality(current, to)){
+                toIndex = i;
+            }
+        }
+
+        boolean foundBothElements = (fromIndex != -1 && toIndex != -1);
+
+        return foundBothElements && addEdge(fromIndex, toIndex);
+    }
+
     @Override
     public void addNode(T node){
         nodes.add(node);
@@ -28,7 +47,7 @@ public abstract class AbstractGraph<T> extends BaseAbstractGraph<T>{
     }
 
     @Override
-    public void bredthFirstSearch() {
+    public void breadthFirstSearch() {
 
     }
 
@@ -46,31 +65,16 @@ public abstract class AbstractGraph<T> extends BaseAbstractGraph<T>{
     }
 
     @Override
-    public boolean isPlanar() {
-        return false;
-    }
+    public String toString(){
+        String output = "";
 
-    @Override
-    public boolean isTree() {
-        return false;
-    }
+        for(int i = 0; i < nodes.size(); i++){
+            output += i + ":(" + nodes.get(i) + ") ===> "
+                    + adjacencyList.get(i).toString() + "\n";
+        }
 
-    @Override
-    public boolean isConnected() {
-        return false;
-    }
-
-    @Override
-    public boolean isComplete() {
-        return false;
-    }
-
-    @Override
-    public void isEularian() {
-
+        return output;
     }
 
     public abstract boolean addEdge(int from, int to);
-
-    public abstract boolean addEdge(T from, T to);
 }

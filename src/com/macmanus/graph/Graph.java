@@ -17,18 +17,8 @@ public interface Graph<T> {
 
     public void depthFirstSearch();
 
-    public void bredthFirstSearch();
+    public void breadthFirstSearch();
 
     public boolean containsEdge(int from, int to);
-
-    public boolean isPlanar();
-
-    public void isEularian();
-
-    public boolean isTree();
-
-    public boolean isConnected();
-
-    public boolean isComplete();
 
 }

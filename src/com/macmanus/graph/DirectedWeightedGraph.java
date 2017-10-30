@@ -27,7 +27,7 @@ public class DirectedWeightedGraph<T> extends AbstractWeightedGraph<T> {
     }
 
     @Override
-    public void bredthFirstSearch() {
+    public void breadthFirstSearch() {
 
     }
 

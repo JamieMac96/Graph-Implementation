@@ -35,4 +35,14 @@ public abstract class BaseAbstractGraph<T> implements Graph<T>{
                     + nodes.size() + ". Index: " + index);
         }
     }
+
+    protected boolean checkEquality(T genericOne, T genericTwo){
+        if(genericOne != null && genericTwo != null) {
+            Object genericObj = ((Object) genericOne);
+            if (genericObj.equals(genericTwo)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

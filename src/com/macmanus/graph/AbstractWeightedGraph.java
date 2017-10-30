@@ -15,7 +15,7 @@ public abstract class AbstractWeightedGraph<T> extends BaseAbstractGraph<T> {
     }
 
     @Override
-    public void bredthFirstSearch() {
+    public void breadthFirstSearch() {
 
     }
 
@@ -24,30 +24,6 @@ public abstract class AbstractWeightedGraph<T> extends BaseAbstractGraph<T> {
         return false;
     }
 
-    @Override
-    public boolean isPlanar() {
-        return false;
-    }
-
-    @Override
-    public void isEularian() {
-
-    }
-
-    @Override
-    public boolean isTree() {
-        return false;
-    }
-
-    @Override
-    public boolean isConnected() {
-        return false;
-    }
-
-    @Override
-    public boolean isComplete() {
-        return false;
-    }
 
     public abstract void shortestPath();
     public abstract void addEdge(int from, int to, int weight);
